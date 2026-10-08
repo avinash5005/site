@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&S WebCraft | Small & Medium Business Web Developer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    R
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg leading-tight tracking-tight">Hasnain Ali</span>
+                    <span class="text-xs text-brand-400 font-medium">Web Developer & Consultant</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+                <a href="#about" class="hover:text-brand-400 transition-colors">About us</a>
+                <a href="#services" class="hover:text-brand-400 transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-brand-400 transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-brand-400 transition-colors">Pricing</a>
+                <a href="#reviews" class="hover:text-brand-400 transition-colors">Reviews</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://wa.me/917379439583?text=Hello%20H&S,%20I%20want%20you%20to%20create%20website%20for%20my%20Business." target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Chat</span>
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-brand-400 py-1">About us</a>
+            <a href="#services" class="block text-slate-300 hover:text-brand-400 py-1">Services</a>
+            <a href="#portfolio" class="block text-slate-300 hover:text-brand-400 py-1">Portfolio</a>
+            <a href="#pricing" class="block text-slate-300 hover:text-brand-400 py-1">Pricing</a>
+            <a href="#reviews" class="block text-slate-300 hover:text-brand-400 py-1">Reviews</a>
+            <div class="pt-2">
+                <a href="https://wa.me/919876543210" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white w-full py-2.5 rounded-xl font-medium">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <!-- Background glow effects -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3.5 py-1.5 rounded-full text-brand-400 text-xs sm:text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        <span>Available for New Small Business Projects</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        For your Business <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">High-Converting</span>   Modern Websites
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0">
+                        We help you to expand your business in online world and to acheive this we build lightning fast, mobile friendly, sales driven websites.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contact" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/30 transition-all transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+                            <span>Book Your Free Consultation</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#portfolio" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-xl transition-all text-center">
+                            Our work
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-8 border-t border-slate-900 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-white">45+</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Projects Completed</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-white">100%</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Client Satisfaction</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-white">4+ Years</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Experience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 shadow-2xl shadow-indigo-500/10">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-xs text-slate-500 bg-slate-900 px-2.5 py-1 rounded-md">hnswebcraft.live</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-brand-950/40 border border-brand-500/20 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-slate-200">Local Store to Online Brand</h4>
+                                    <p class="text-xs text-slate-400">Increased local inquiries by 180%</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-slate-200">Lightning Fast Speed</h4>
+                                    <p class="text-xs text-slate-400">Google PageSpeed Score 95+</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-slate-200">Mobile Responsive</h4>
+                                    <p class="text-xs text-slate-400">Perfect view on all phones & tablets</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+                            <span class="text-xs text-slate-400 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-shield-halved text-emerald-400"></i> Secure & SEO Optimized Code
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-900/50 border-t border-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-brand-600 to-purple-600 rounded-3xl blur-xl opacity-30"></div>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6">
+                            <div class="w-24 h-24 rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-4xl mx-auto">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold text-white">Hasnain Ali</h3>
+                                <p class="text-sm text-brand-400 font-medium">Freelance Web Developer</p>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-slate-800 text-sm text-slate-300">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400"><i class="fa-solid fa-location-dot mr-2 text-brand-500"></i> Location:</span>
+                                    <span class="font-medium">Lucknow, Uttar Pradesh, India</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400"><i class="fa-solid fa-envelope mr-2 text-brand-500"></i> Email:</span>
+                                    <span class="font-medium">hello@hnswebcraft.live</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-400"><i class="fa-solid fa-check-circle mr-2 text-brand-500"></i> Status:</span>
+                                    <span class="text-emerald-400 font-medium">Available for hire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                        About Us
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                        We help Small businesses to grow on digital world.
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        Hello! I’m a passionate freelance web designer and developer. My goal is to help local shops, service providers, and growing businesses build professional websites that are not only visually appealing but also help them attract new clients and generate more orders.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        In today’s digital age, if your business isn’t online, you’re falling behind your competitors. I build clean, fast, and high-converting websites tailored to your business, helping you establish instant trust with your customers.
+                    </p>
+
+                    <!-- Skills grid -->
+                    <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl text-center">
+                            <i class="fa-brands fa-html5 text-3xl text-orange-500 mb-2"></i>
+                            <h4 class="font-semibold text-sm">HTML / CSS / JS</h4>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl text-center">
+                            <i class="fa-brands fa-wordpress text-3xl text-blue-400 mb-2"></i>
+                            <h4 class="font-semibold text-sm">WordPress</h4>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl text-center">
+                            <i class="fa-solid fa-cart-shopping text-3xl text-purple-400 mb-2"></i>
+                            <h4 class="font-semibold text-sm">E-Commerce</h4>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl text-center">
+                            <i class="fa-solid fa-gauge-high text-3xl text-emerald-400 mb-2"></i>
+                            <h4 class="font-semibold text-sm">SEO & Speed</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                    Our Services
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                    Best Web Solutions for your Business
+                </h2>
+                <p class="text-slate-400">
+                    Whether you need a simple business portfolio or a complete online store, all kinds of website requirements can be fulfilled here.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Business Website</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Professional multi-page, responsive websites for local businesses, consultants, agencies, and service providers.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Mobile Friendly Design</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Contact & Enquiry Forms</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Google Maps Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">E-Commerce Store</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Sell your products online with secure payment gateways like Razorpay and UPI, along with easy product management.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> WooCommerce / Shopify</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Payment Gateway Setup</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Inventory Management</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">High-Converting Landing Page</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        High-speed single-page landing pages for special offers, product launches, or ad campaigns (Google/Meta Ads).
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> High Conversion Layout</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Fast Loading (Under 2s)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> WhatsApp CTA Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Speed & SEO Optimization</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        If your old website is slow or isn’t ranking on Google, we’ll make it superfast and SEO-friendly.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Core Web Vitals Fix</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> On-Page SEO Setup</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Security Hardening</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-slate-900/50 border-t border-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                    Our Work
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                    Featured Portfolio Projects
+                </h2>
+                <p class="text-slate-400">
+                    Here, you can view some examples of recent small business websites I’ve created.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button onclick="filterProjects('all')" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-brand-600 text-white transition-all shadow-md shadow-brand-600/20" data-filter="all">All Projects</button>
+                <button onclick="filterProjects('business')" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all" data-filter="business">Business Website</button>
+                <button onclick="filterProjects('ecommerce')" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all" data-filter="ecommerce">E-Commerce</button>
+                <button onclick="filterProjects('landing')" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all" data-filter="landing">Landing Page</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="business">
+                    <div class="relative h-52 bg-slate-950 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/6366f1?text=Apex+Interior+Studio" alt="Interior Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-brand-400 border border-slate-800">
+                            Business Website
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Apex Interior Studio</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A modern, responsive portfolio website for a luxury interior design firm, featuring an inquiry lead capture form.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-medium">Client: Delhi NCR</span>
+                            <button onclick="openModal('Apex Interior', 'Ek luxury interior design firm ke liye modern responsive portfolio website. Isme high-resolution image galleries, client project breakdown, aur WhatsApp inquiry integration shamil hai.', 'https://placehold.co/800x500/1e293b/6366f1?text=Apex+Interior+Preview', 'Business Website')" class="text-sm text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="ecommerce">
+                    <div class="relative h-52 bg-slate-950 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/a855f7?text=Organic+Honey+Store" alt="E-commerce Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-purple-400 border border-slate-800">
+                            E-Commerce
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Organic Honey Store</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A WooCommerce online store for a D2C natural honey brand, featuring online payment gateways and order tracking.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-medium">Client: Punjab</span>
+                            <button onclick="openModal('Organic Honey Store', 'D2C natural honey brand ke liye WooCommerce online store. Isme secure checkout, coupon code system, aur automated WhatsApp order alerts shamil hain.', 'https://placehold.co/800x500/1e293b/a855f7?text=Organic+Honey+Preview', 'E-Commerce')" class="text-sm text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="landing">
+                    <div class="relative h-52 bg-slate-950 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/10b981?text=Fitness+Gym+Launch" alt="Landing Page" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-emerald-400 border border-slate-800">
+                            Landing Page
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">FitZone Gym</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A high-converting registration landing page for a special discount campaign celebrating the opening of a new gym.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-medium">Client: Jaipur</span>
+                            <button onclick="openModal('FitZone Gym Launch', 'New gym opening ke liye high converting registration landing page. Isme countdown timer, pricing comparison table aur instant WhatsApp lead generation form hai.', 'https://placehold.co/800x500/1e293b/10b981?text=FitZone+Preview', 'Landing Page')" class="text-sm text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="business">
+                    <div class="relative h-52 bg-slate-950 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/f59e0b?text=Legal+Advisors+Firm" alt="Legal Firm" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-amber-400 border border-slate-800">
+                            Business Website
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Verma & Associates Legal</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A professional, trust-building website for a corporate law firm, featuring an appointment booking system.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-medium">Client: Mumbai</span>
+                            <button onclick="openModal('Verma & Associates Legal', 'Corporate law firm ke liye professional trust-building website with appointment booking calendar and lawyer profiles.', 'https://placehold.co/800x500/1e293b/f59e0b?text=Legal+Preview', 'Business Website')" class="text-sm text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="ecommerce">
+                    <div class="relative h-52 bg-slate-950 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/ec4899?text=Ethnic+Boutique+Store" alt="Boutique Store" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-pink-400 border border-slate-800">
+                            E-Commerce
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Sanskriti Ethnic Wear</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                An elegant online store for a women’s ethnic clothing boutique, featuring size filters and a wishlist feature.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-medium">Client: Lucknow</span>
+                            <button onclick="openModal('Sanskriti Ethnic Wear', 'Women ethnic clothing boutique ke liye elegant online store with size filters, high zoom product gallery and wishlist feature.', 'https://placehold.co/800x500/1e293b/ec4899?text=Boutique+Preview', 'E-Commerce')" class="text-sm text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all flex flex-col" data-category="landing">
+                    <div class="relative h-52 bg-slate-950 overflow-hidden">
+                        <img src="https://placehold.co/600x400/1e293b/06b6d4?text=Solar+Energy+Solutions" alt="Solar Landing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-cyan-400 border border-slate-800">
+                            Landing Page
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">EcoSolar Power Solutions</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A high-converting lead generation landing page designed to collect leads for solar panel installation.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <span class="text-xs text-slate-500 font-medium">Client: Ahmedabad</span>
+                            <button onclick="openModal('EcoSolar Power Solutions', 'Solar panel installation leads collect karne ke liye high-converting lead generation landing page with solar cost calculator.', 'https://placehold.co/800x500/1e293b/06b6d4?text=Solar+Preview', 'Landing Page')" class="text-sm text-brand-400 hover:text-brand-300 font-semibold flex items-center gap-1">
+                                View Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                    Client Reviews
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                    Satisfied Business Owners.
+                </h2>
+                <p class="text-slate-400">
+                    My clients’ feedback is my greatest achievement.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">
+                            "H&S designed and developed our interior studio’s website. We had no online presence before, but now, thanks to the website, we’re receiving 3–4 new client inquiries every day. Highly recommended!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-brand-600/20 text-brand-400 flex items-center justify-center font-bold text-lg">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Amit Sharma</h4>
+                            <p class="text-xs text-slate-400">Founder, Apex Interior Studio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">
+                            "I run an organic honey business, and H&S built me an excellent e-commerce store. The payment gateway integration and mobile performance are outstanding. My sales have increased by 50%."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-purple-600/20 text-purple-400 flex items-center justify-center font-bold text-lg">
+                            P
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Pooja Malhotra</h4>
+                            <p class="text-xs text-slate-400">Owner, Organic Honey Store</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-1 text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">
+                            "H&S’s approach to work is very professional. He delivered the project on time, and the website design turned out exactly the way we wanted. The support has also been excellent."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                            R
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Rajesh Gupta</h4>
+                            <p class="text-xs text-slate-400">Director, FitZone Gym</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-slate-900/50 border-t border-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                    Affordable Pricing
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                    Transparent Packages for Small Businesses
+                </h2>
+                <p class="text-slate-400">
+                    No hidden charges. Choose a package that fits your business budget.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Package 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Starter Business</span>
+                            <h3 class="text-2xl font-bold text-white mt-1">Single Page / Landing</h3>
+                            <p class="text-slate-400 text-sm mt-2">Perfect for new startups and launching a single service.</p>
+                        </div>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-extrabold text-white">₹27,999</span>
+                            <span class="text-slate-400 text-sm">/ one-time</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> High Converting Landing Page</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Mobile & Tablet Responsive</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> WhatsApp Direct Button</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Speed Optimized</li>
+                            <li class="flex items-center gap-3 text-slate-500"><i class="fa-solid fa-xmark text-slate-600"></i> Multiple Pages</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="#contact" class="block w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3.5 rounded-xl text-center transition-all">
+                            Choose Starter
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Highlighted) -->
+                <div class="bg-gradient-to-b from-brand-950/60 to-slate-900 border-2 border-brand-500 rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl shadow-brand-500/20">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
+                        Most Popular
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Growth Business</span>
+                            <h3 class="text-2xl font-bold text-white mt-1">Professional Website</h3>
+                            <p class="text-slate-400 text-sm mt-2">For Established small businesses aur agencies.</p>
+                        </div>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-extrabold text-white">₹44,999</span>
+                            <span class="text-slate-400 text-sm">/ one-time</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Upto 5-7 Custom Pages</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Modern Responsive Design</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Contact Form & Google Maps</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Basic SEO Setup</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> 1 Year Free Support & Hosting Guide</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="#contact" class="block w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3.5 rounded-xl text-center transition-all shadow-lg shadow-brand-600/30">
+                            Choose Growth Plan
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">E-Commerce Store</span>
+                            <h3 class="text-2xl font-bold text-white mt-1">Online Store</h3>
+                            <p class="text-slate-400 text-sm mt-2">For shops and brands that want to sell their products online.</p>
+                        </div>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-extrabold text-white">₹74,999</span>
+                            <span class="text-slate-400 text-sm">/ one-time</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Complete WooCommerce / Shopify Store</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Upto 50 Products Uploaded</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Razorpay / UPI Payment Gateway</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Order Management Dashboard</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Admin Training Video Included</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="#contact" class="block w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3.5 rounded-xl text-center transition-all">
+                            Choose E-Commerce
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                        Contact Us
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                        Need a website for your business? Let’s talk!
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        Fill out the form below or send me a message directly on WhatsApp. I’ll get in touch with you within 2 hours to discuss the best solution for your business.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-400 font-medium">Call / WhatsApp</h4>
+                                <p class="text-white font-semibold">+91 7379439583</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-400 font-medium">Email Address</h4>
+                                <p class="text-white font-semibold">hello@hnswebcraft.live</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-slate-400 font-medium">Location</h4>
+                                <p class="text-white font-semibold">Lucknow, Uttar Pradesh, India (Serving clients worldwide)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/919876543210?text=Hello%20Rahul,%20mujhe%20website%20banvani%20hai." target="_blank" class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition-all">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Chat Instantly on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="lg:col-span-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative">
+                        <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Name</label>
+                                <input type="text" id="clientName" required placeholder="ex: Amit Sharma" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-brand-500 text-sm">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Mobile / WhatsApp Number</label>
+                                    <input type="tel" id="clientPhone" required placeholder="9876543210" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-brand-500 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Business Type</label>
+                                    <select id="businessType" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-brand-500 text-sm">
+                                        <option value="Business Website">Business / Portfolio</option>
+                                        <option value="E-Commerce Store">E-Commerce Store</option>
+                                        <option value="Landing Page">Landing Page</option>
+                                        <option value="Speed / SEO">Speed & SEO Fix</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Tell us About Business</label>
+                                <textarea id="clientMessage" rows="4" placeholder="What is your business about, and what are your requirements?" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-brand-500 text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 rounded-xl shadow-lg shadow-brand-600/30 transition-all flex items-center justify-center gap-2">
+                                <span>Request for Free Consultation</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                        </form>
+
+                        <!-- Success State Box -->
+                        <div id="successBox" class="hidden text-center py-12 space-y-4">
+                            <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-3xl mx-auto">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Thank You! Got your Message </h3>
+                            <p class="text-slate-400 text-sm max-w-sm mx-auto">
+                                I’ve received your inquiry. I’ll get in touch with you shortly via WhatsApp or phone.
+                            </p>
+                            <button onclick="resetForm()" class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold px-6 py-2.5 rounded-xl transition-all">
+                                Send Another Message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white bg-slate-800 w-9 h-9 rounded-full flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-6">
+                <div class="inline-block bg-brand-500/10 text-brand-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider" id="modalCategory">
+                    Category
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white" id="modalTitle">Project Title</h3>
+                <div class="rounded-2xl overflow-hidden border border-slate-800">
+                    <img id="modalImage" src="" alt="Preview" class="w-full h-auto object-cover">
+                </div>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed" id="modalDescription">
+                    Project detailed description goes here...
+                </p>
+                <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                    <span class="text-xs text-slate-400"><i class="fa-solid fa-shield-check text-emerald-400"></i> Built with modern responsive tech</span>
+                    <a href="#contact" onclick="closeModal()" class="bg-brand-600 hover:bg-brand-500 text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-all">
+                        Get a Website Like This
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex items-center justify-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold text-sm">
+                    R
+                </div>
+                <span class="font-bold text-white text-base">H&S WebCraft</span>
+            </div>
+            <p>© 2026 H&S. All rights reserved. Helping Small & Medium Businesses Grow Online.</p>
+            <div class="flex items-center justify-center gap-6 text-slate-400 pt-2">
+                <a href="#about" class="hover:text-white transition-colors">About Us</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio Filtering
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if(btn.getAttribute('data-filter') === category) {
+                    btn.classList.remove('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
+                    btn.classList.add('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-600/20');
+                } else {
+                    btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md', 'shadow-brand-600/20');
+                    btn.classList.add('bg-slate-900', 'border', 'border-slate-800', 'text-slate-300');
+                }
+            });
+
+            cards.forEach(card => {
+                if(category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Controls
+        function openModal(title, desc, imgSrc, category) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = desc;
+            document.getElementById('modalImage').src = imgSrc;
+            document.getElementById('modalCategory').innerText = category;
+            
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('projectModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Lead Form Submission Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const bType = document.getElementById('businessType').value;
+            const msg = document.getElementById('clientMessage').value;
+
+            // Hide form and show success box
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('successBox').classList.remove('hidden');
+
+            // Optional: You can trigger WhatsApp auto-redirect with prefilled message if desired
+            console.log(`Lead Received: ${name}, ${phone}, ${bType}, ${msg}`);
+        }
+
+        function resetForm() {
+            document.getElementById('leadForm').reset();
+            document.getElementById('successBox').classList.add('hidden');
+            document.getElementById('leadForm').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
