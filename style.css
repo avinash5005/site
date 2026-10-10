@@ -344,3 +344,33 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     body::before { display: none; }
     .reveal { opacity: 1; translate: 0 0; filter: none; }
 }
+
+/* =========================================================
+   FORM VALIDATION STYLES
+   ========================================================= */
+.input-invalid {
+    border-color: #f43f5e !important;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, .18);
+}
+.field-error-text {
+    color: #fb7185;
+    font-size: .75rem;
+    margin-top: .4rem;
+    animation: faqIn .25s ease both;
+}
+.form-error-box {
+    background: rgba(244, 63, 94, .08);
+    border: 1px solid rgba(244, 63, 94, .35);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: .85rem;
+    line-height: 1.5;
+    color: #fecdd3;
+}
+.form-error-box a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #34d399;
+    font-weight: 600;
+    text-decoration: underline;
+}

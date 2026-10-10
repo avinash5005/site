@@ -81,27 +81,244 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// =========================================================
+// LEAD FORM: validation + delivery
+//   - Valid details are emailed to FORM_EMAIL (via FormSubmit.co)
+//   - If email fails, the visitor can send the same message on WhatsApp
+// =========================================================
+const FORM_EMAIL = 'hello@hnswebcraft.live';
+const WHATSAPP_NUMBER = '917379439583';
+
+function validateName(v) {
+    v = v.trim().replace(/\s+/g, ' ');
+    if (!v) return 'Please enter your name.';
+    if (v.length < 2) return 'Name is too short.';
+    if (v.length > 50) return 'Name is too long (max 50 characters).';
+    if (!/^[A-Za-z\u0900-\u097F][A-Za-z\u0900-\u097F .'\-]*$/.test(v)) return 'Please use letters only in your name.';
+    return '';
+}
+
+function validatePhone(v) {
+    v = v.trim();
+    if (!v) return 'Please enter your mobile number.';
+    if (!/^\d+$/.test(v)) return 'Use digits only.';
+    if (v.length !== 10) return 'Mobile number must be exactly 10 digits.';
+    if (!/^[6-9]/.test(v)) return 'Enter a valid mobile number (it starts with 6, 7, 8 or 9).';
+    return '';
+}
+
+function validateMessage(v) {
+    v = v.trim();
+    if (!v) return 'Please tell us a little about your business.';
+    if (v.length < 10) return 'Please write at least 10 characters.';
+    if (v.length > 1000) return 'Message is too long (max 1000 characters).';
+    return '';
+}
+
+// keeps only digits; also handles pasted numbers like +91 98765 43210 or 098765 43210
+function cleanPhone(raw) {
+    let d = raw.replace(/\D/g, '');
+    if (d.length === 12 && d.indexOf('91') === 0) d = d.slice(2);
+    else if (d.length === 11 && d.charAt(0) === '0') d = d.slice(1);
+    return d.slice(0, 10);
+}
+
+const FIELD_VALIDATORS = {
+    clientName: validateName,
+    clientPhone: validatePhone,
+    clientMessage: validateMessage
+};
+
+function showFieldError(input, msg) {
+    let el = document.getElementById('err-' + input.id);
+    if (!el) {
+        el = document.createElement('p');
+        el.id = 'err-' + input.id;
+        el.className = 'field-error-text';
+        el.setAttribute('role', 'alert');
+        input.insertAdjacentElement('afterend', el);
+    }
+    el.textContent = msg;
+    input.classList.add('input-invalid');
+    input.setAttribute('aria-invalid', 'true');
+}
+
+function clearFieldError(input) {
+    const el = document.getElementById('err-' + input.id);
+    if (el) el.remove();
+    input.classList.remove('input-invalid');
+    input.removeAttribute('aria-invalid');
+}
+
+// returns true when the field is valid
+function checkField(input) {
+    const fn = FIELD_VALIDATORS[input.id];
+    const msg = fn ? fn(input.value) : '';
+    if (msg) showFieldError(input, msg);
+    else clearFieldError(input);
+    return !msg;
+}
+
+function buildWhatsAppLink(d) {
+    const text =
+        'Hi! I just filled the contact form on your website.\n' +
+        'Name: ' + d.name + '\n' +
+        'Phone: ' + d.phone + '\n' +
+        'Service: ' + d.service + '\n' +
+        'Details: ' + d.message;
+    return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+}
+
+function clearFormError() {
+    const box = document.getElementById('formError');
+    if (box) box.remove();
+}
+
+function showFormError(form, data) {
+    clearFormError();
+    const box = document.createElement('div');
+    box.id = 'formError';
+    box.className = 'form-error-box';
+    box.setAttribute('role', 'alert');
+    box.innerHTML =
+        'We could not send your message right now. Please send the same details on WhatsApp instead.<br>' +
+        '<a href="' + buildWhatsAppLink(data) + '" target="_blank" rel="noopener">Send on WhatsApp &rarr;</a>';
+    form.querySelector('button[type="submit"]').insertAdjacentElement('beforebegin', box);
+}
+
+function showSuccess(form, data) {
+    form.classList.add('hidden');
+    const success = document.getElementById('successBox');
+    success.classList.remove('hidden');
+
+    let wa = document.getElementById('waFollowUp');
+    if (!wa) {
+        wa = document.createElement('a');
+        wa.id = 'waFollowUp';
+        wa.target = '_blank';
+        wa.rel = 'noopener';
+        wa.className = 'inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all';
+        wa.innerHTML = '<i class="fa-brands fa-whatsapp text-lg"></i><span>Get a faster reply on WhatsApp</span>';
+        const resetBtn = success.querySelector('button');
+        if (resetBtn) resetBtn.insertAdjacentElement('beforebegin', wa);
+        else success.appendChild(wa);
+    }
+    wa.href = buildWhatsAppLink(data);
+}
+
 // Lead Form Submission Handler
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
     e.preventDefault();
 
-    const name = document.getElementById('clientName').value;
-    const phone = document.getElementById('clientPhone').value;
-    const bType = document.getElementById('businessType').value;
-    const msg = document.getElementById('clientMessage').value;
+    const form = document.getElementById('leadForm');
+    if (form.dataset.sending === '1') return; // ignore double clicks
 
-    // Hide form and show success box
-    document.getElementById('leadForm').classList.add('hidden');
-    document.getElementById('successBox').classList.remove('hidden');
+    const nameEl = document.getElementById('clientName');
+    const phoneEl = document.getElementById('clientPhone');
+    const typeEl = document.getElementById('businessType');
+    const msgEl = document.getElementById('clientMessage');
 
-    console.log(`Lead Received: ${name}, ${phone}, ${bType}, ${msg}`);
+    // 1. validate every field, focus the first wrong one
+    let firstBad = null;
+    [nameEl, phoneEl, msgEl].forEach(function (el) {
+        if (!checkField(el) && !firstBad) firstBad = el;
+    });
+    if (firstBad) {
+        firstBad.focus();
+        return;
+    }
+
+    const data = {
+        name: nameEl.value.trim().replace(/\s+/g, ' '),
+        phone: phoneEl.value.trim(),
+        service: typeEl.value,
+        message: msgEl.value.trim()
+    };
+
+    // 2. sending state
+    const btn = form.querySelector('button[type="submit"]');
+    const label = btn.querySelector('span');
+    const oldLabel = label.textContent;
+    form.dataset.sending = '1';
+    btn.disabled = true;
+    btn.classList.add('opacity-70', 'cursor-not-allowed');
+    label.textContent = 'Sending...';
+    clearFormError();
+
+    // 3. deliver to email
+    try {
+        const res = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                name: data.name,
+                phone: '+91 ' + data.phone,
+                service: data.service,
+                message: data.message,
+                _subject: 'New website enquiry from ' + data.name,
+                _template: 'table',
+                _captcha: 'false'
+            })
+        });
+        const out = await res.json().catch(function () { return {}; });
+        const ok = res.ok && (out.success === true || out.success === 'true');
+        if (!ok) throw new Error(out.message || 'Send failed');
+        showSuccess(form, data);
+    } catch (err) {
+        showFormError(form, data);
+    } finally {
+        form.dataset.sending = '';
+        btn.disabled = false;
+        btn.classList.remove('opacity-70', 'cursor-not-allowed');
+        label.textContent = oldLabel;
+    }
 }
 
 function resetForm() {
-    document.getElementById('leadForm').reset();
+    const form = document.getElementById('leadForm');
+    form.reset();
+    form.querySelectorAll('input, textarea').forEach(clearFieldError);
+    clearFormError();
     document.getElementById('successBox').classList.add('hidden');
-    document.getElementById('leadForm').classList.remove('hidden');
+    form.classList.remove('hidden');
 }
+
+// Form setup: custom validation messages, digits-only phone field
+(function initLeadForm() {
+    function setup() {
+        const form = document.getElementById('leadForm');
+        if (!form) return;
+
+        form.setAttribute('novalidate', '');
+        const nameEl = document.getElementById('clientName');
+        const phoneEl = document.getElementById('clientPhone');
+        const msgEl = document.getElementById('clientMessage');
+
+        nameEl.setAttribute('maxlength', '50');
+        nameEl.setAttribute('autocomplete', 'name');
+        msgEl.setAttribute('maxlength', '1000');
+        phoneEl.setAttribute('inputmode', 'numeric');
+        phoneEl.setAttribute('autocomplete', 'tel-national');
+        phoneEl.removeAttribute('pattern');
+        phoneEl.removeAttribute('title');
+
+        phoneEl.addEventListener('input', function () {
+            const c = cleanPhone(phoneEl.value);
+            if (c !== phoneEl.value) phoneEl.value = c;
+            clearFieldError(phoneEl);
+        });
+        nameEl.addEventListener('input', function () { clearFieldError(nameEl); });
+        msgEl.addEventListener('input', function () { clearFieldError(msgEl); });
+
+        [nameEl, phoneEl, msgEl].forEach(function (el) {
+            el.addEventListener('blur', function () {
+                if (el.value.trim()) checkField(el);
+            });
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup);
+    else setup();
+})();
 
 // =========================================================
 // ANIMATIONS
