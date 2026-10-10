@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | H&S WebCraft</title>
+<meta name="description" content="Transparent website packages for small businesses: landing pages, business websites, online stores, custom web apps and monthly maintenance plans.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                brand: {
+                    50: '#eef2ff',
+                    100: '#e0e7ff',
+                    400: '#818cf8',
+                    500: '#6366f1',
+                    600: '#4f46e5',
+                    700: '#4338ca',
+                    900: '#312e81',
+                    950: '#1e1b4b',
+                }
+            }
+        }
+    }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+
+<!-- Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+            H&S
+        </div>
+        <div class="flex flex-col">
+            <span class="font-bold text-lg leading-tight tracking-tight">Hasnain & Siddhant</span>
+            <span class="text-xs text-brand-400 font-medium">Web Developer & Consultant</span>
+        </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+        <a href="about.html" class="hover:text-brand-400 transition-colors">About us</a>
+        <a href="services.html" class="hover:text-brand-400 transition-colors">Services</a>
+        <a href="index.html#portfolio" class="hover:text-brand-400 transition-colors">Portfolio</a>
+        <a href="pricing.html" class="text-brand-400">Pricing</a>
+        <a href="index.html#reviews" class="hover:text-brand-400 transition-colors">Reviews</a>
+    </nav>
+
+    <div class="hidden sm:flex items-center gap-4">
+        <a href="https://wa.me/917379439583?text=Hi! I’d like to enquire about your services. Please share the available options, pricing, and further details." target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp Chat</span>
+        </a>
+    </div>
+
+    <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Open menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+    </button>
+</div>
+
+<div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+    <a href="about.html" class="block text-slate-300 hover:text-brand-400 py-1">About us</a>
+    <a href="services.html" class="block text-slate-300 hover:text-brand-400 py-1">Services</a>
+    <a href="index.html#portfolio" class="block text-slate-300 hover:text-brand-400 py-1">Portfolio</a>
+    <a href="pricing.html" class="block text-brand-400 py-1">Pricing</a>
+    <a href="index.html#reviews" class="block text-slate-300 hover:text-brand-400 py-1">Reviews</a>
+    <div class="pt-2">
+        <a href="https://wa.me/917379439583" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white w-full py-2.5 rounded-xl font-medium">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
+        </a>
+    </div>
+</div>
+</header>
+
+<!-- Page Hero -->
+<section class="relative pt-32 pb-12 md:pt-44 md:pb-16 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+        <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3.5 py-1.5 rounded-full text-brand-400 text-xs sm:text-sm font-medium">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            <span>Affordable Pricing</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+            <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+                Simple Packages for Every Business Size
+            </span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+            No hidden charges. Pick a package that fits your budget, or ask us for a custom quote.
+        </p>
+    </div>
+</section>
+
+<!-- Pricing Grid -->
+<section class="pb-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+
+            <!-- Plan 1: Starter -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Starter Business</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Single Page / Landing</h3>
+                        <p class="text-slate-400 text-sm mt-2">Perfect for new startups and launching a single service.</p>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-xl font-bold text-slate-400 line-through">₹19,999</span>
+                        <span class="text-4xl font-extrabold text-white">₹9,999</span>
+                        <span class="text-slate-400 text-sm">only</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> High Converting Landing Page</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Mobile & Tablet Responsive</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> WhatsApp Direct Button</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Speed Optimized</li>
+                        <li class="flex items-center gap-3 text-slate-500"><i class="fa-solid fa-xmark text-slate-600"></i> Multiple Pages</li>
+                    </ul>
+                </div>
+                <div class="pt-8">
+                    <a href="index.html#contact" class="block w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3.5 rounded-xl text-center transition-all">Choose Starter</a>
+                </div>
+            </div>
+
+            <!-- Plan 2: Growth (Most Popular) -->
+            <div class="bg-gradient-to-b from-brand-950/60 to-slate-900 border-2 border-brand-500 rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl shadow-brand-500/20">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md">
+                    Most Popular
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Growth Business</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Professional Website</h3>
+                        <p class="text-slate-400 text-sm mt-2">For established small businesses and agencies.</p>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-xl font-bold text-slate-400 line-through">₹39,999</span>
+                        <span class="text-4xl font-extrabold text-white">₹24,999</span>
+                        <span class="text-slate-400 text-sm">only</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Upto 5-7 Custom Pages</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Modern Responsive Design</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Contact Form & Google Maps</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Basic SEO Setup</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> 1 Year Free Support & Hosting Guide</li>
+                    </ul>
+                </div>
+                <div class="pt-8">
+                    <a href="index.html#contact" class="block w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3.5 rounded-xl text-center transition-all shadow-lg shadow-brand-600/30">Choose Growth Plan</a>
+                </div>
+            </div>
+
+            <!-- Plan 3: E-Commerce -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">E-Commerce Store</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Online Store</h3>
+                        <p class="text-slate-400 text-sm mt-2">For shops and brands that want to sell their products online.</p>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-xl font-bold text-slate-400 line-through">₹59,999</span>
+                        <span class="text-4xl font-extrabold text-white">₹44,999</span>
+                        <span class="text-slate-400 text-sm">only</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Complete WooCommerce / Shopify Store</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Upto 50 Products Uploaded</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Razorpay / UPI Payment Gateway</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Order Management Dashboard</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-400"></i> Admin Training Video Included</li>
+                    </ul>
+                </div>
+                <div class="pt-8">
+                    <a href="index.html#contact" class="block w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3.5 rounded-xl text-center transition-all">Choose E-Commerce</a>
+                </div>
+            </div>
+
+            <!-- Plan 4: Custom (NEW) -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Custom Solution</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Custom Web App</h3>
+                        <p class="text-slate-400 text-sm mt-2">For businesses that need booking, login, dashboards or special features.</p>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-slate-400 text-sm">Starting from</span>
+                        <span class="text-4xl font-extrabold text-white">₹74,999</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Custom Design by UI/UX Designer</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Custom Backend & Database</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> User Login & Admin Dashboard</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Payment Gateway Integration</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i> Final price after free consultation</li>
+                    </ul>
+                </div>
+                <div class="pt-8">
+                    <a href="index.html#contact" class="block w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3.5 rounded-xl text-center transition-all">Request a Quote</a>
+                </div>
+            </div>
+
+            <!-- Plan 5: Monthly Maintenance (2 options) -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col md:col-span-2">
+                <div class="mb-8">
+                    <span class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Monthly Care Plan</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Website Maintenance</h3>
+                    <p class="text-slate-400 text-sm mt-2">We look after your website every month so you can focus on your business. Choose based on who built your website.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+
+                    <!-- Option A: Built by us (cheaper) -->
+                    <div class="bg-slate-950 border border-sky-500/40 rounded-2xl p-6 flex flex-col justify-between relative">
+                        <div class="absolute -top-3 left-6 bg-sky-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Best Value</div>
+                        <div class="space-y-5">
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Built by H&S</h4>
+                                <p class="text-slate-400 text-xs mt-1">Your website was made by us, so we already know it inside out.</p>
+                            </div>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-3xl font-extrabold text-white">₹9,999</span>
+                                <span class="text-slate-400 text-sm">/ month</span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Content & Image Updates</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Regular Backups</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Security & Uptime Checks</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Priority WhatsApp Support</li>
+                            </ul>
+                        </div>
+                        <div class="pt-6">
+                            <a href="index.html#contact" class="block w-full bg-sky-600 hover:bg-sky-500 text-white font-semibold py-3 rounded-xl text-center text-sm transition-all">Choose This Plan</a>
+                        </div>
+                    </div>
+
+                    <!-- Option B: Built by someone else (costlier) -->
+                    <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                        <div class="space-y-5">
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Built by Someone Else</h4>
+                                <p class="text-slate-400 text-xs mt-1">Your website was made by another developer or agency. We take it over and maintain it.</p>
+                            </div>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-3xl font-extrabold text-white">₹14,999</span>
+                                <span class="text-slate-400 text-sm">/ month</span>
+                            </div>
+                            <ul class="space-y-2.5 text-sm text-slate-300 pt-4 border-t border-slate-800">
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Initial Website Check & Takeover</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Content & Image Updates</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Regular Backups</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Security & Uptime Checks</li>
+                                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sky-400"></i> Priority WhatsApp Support</li>
+                            </ul>
+                        </div>
+                        <div class="pt-6">
+                            <a href="index.html#contact" class="block w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl text-center text-sm transition-all">Choose This Plan</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center text-slate-500 text-sm mt-10">
+            Prices are in Indian Rupees (₹). Final cost may change if your requirements go beyond the plan. We always confirm it with you before starting.
+        </p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 bg-slate-900/50 border-t border-slate-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-4 mb-12">
+            <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                Pricing FAQ
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Before you choose a plan</h2>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 open:border-brand-500/50">
+                <summary class="flex items-center justify-between cursor-pointer font-semibold text-white list-none">
+                    Are there any hidden charges?
+                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-slate-400 text-sm leading-relaxed mt-3">No. We confirm what is included and the final cost before starting. Domain and hosting are paid to the provider and are separate from our fee.</p>
+            </details>
+            <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 open:border-brand-500/50">
+                <summary class="flex items-center justify-between cursor-pointer font-semibold text-white list-none">
+                    Can I upgrade my plan later?
+                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-slate-400 text-sm leading-relaxed mt-3">Yes. You can start with a landing page and move to a full website or online store later as your business grows.</p>
+            </details>
+            <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 open:border-brand-500/50">
+                <summary class="flex items-center justify-between cursor-pointer font-semibold text-white list-none">
+                    I need something that isn't listed here.
+                    <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+                </summary>
+                <p class="text-slate-400 text-sm leading-relaxed mt-3">Message us on WhatsApp or fill the contact form. We will suggest the right plan or prepare a custom quote after a free consultation.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Not sure which plan is right for you?</h2>
+        <p class="text-slate-400">Tell us about your business and we will recommend the best option, with no obligation.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <a href="index.html#contact" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/30 transition-all text-center">
+                Book Your Free Consultation
+            </a>
+            <a href="https://wa.me/917379439583?text=Hi! I’d like to enquire about your services. Please share the available options, pricing, and further details." target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Chat on WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-slate-500 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <div class="flex items-center justify-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold text-sm">
+                H&S
+            </div>
+            <span class="font-bold text-white text-base">H&S WebCraft</span>
+        </div>
+        <p>© 2026 H&S. All rights reserved. Helping Businesses Grow Online.</p>
+        <div class="flex items-center justify-center gap-6 text-slate-400 pt-2">
+            <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+            <a href="services.html" class="hover:text-white transition-colors">Services</a>
+            <a href="index.html#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+            <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+            <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+</script>
+</body>
+</html>
