@@ -1,3 +1,7 @@
+/* =========================================================
+   H&S WebCraft | style.css
+   ========================================================= */
+
 body {
     font-family: 'Inter', sans-serif;
 }
@@ -6,4 +10,220 @@ body {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   STYLING EXTRAS
+   ========================================================= */
+html { scroll-behavior: smooth; }
+
+/* Glass card hover */
+.glass-card {
+    transition: border-color .3s ease, background .3s ease;
+}
+.glass-card:hover {
+    border-color: rgba(129, 140, 248, .45);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb {
+    background: #312e81;
+    border-radius: 10px;
+    border: 2px solid #020617;
+}
+::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
+
+/* Headings stay balanced on 2 lines */
+h1, h2 { text-wrap: balance; }
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+/* ---------- Scroll progress bar ---------- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 60;
+    background: linear-gradient(90deg, #6366f1, #a78bfa, #34d399);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+/* ---------- Header gets stronger when scrolled ---------- */
+header.fixed {
+    transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+header.fixed.scrolled {
+    background-color: rgba(2, 6, 23, .92);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .6);
+    border-color: rgba(99, 102, 241, .25);
+}
+
+/* ---------- Nav underline ---------- */
+header nav a {
+    position: relative;
+}
+header nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #6366f1, #a78bfa);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+}
+header nav a:hover::after,
+header nav a.text-brand-400::after {
+    transform: scaleX(1);
+}
+
+/* ---------- Mobile menu slide ---------- */
+#mobile-menu:not(.hidden) {
+    animation: menuDrop .3s ease both;
+}
+@keyframes menuDrop {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Hero entrance (runs once on page load) ---------- */
+.hero-in {
+    animation: heroIn .8s cubic-bezier(.2, .7, .2, 1) both;
+}
+@keyframes heroIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Animated gradient text ---------- */
+.bg-clip-text {
+    background-size: 220% auto;
+    animation: gradShift 7s ease-in-out infinite alternate;
+}
+@keyframes gradShift {
+    from { background-position: 0% 50%; }
+    to   { background-position: 100% 50%; }
+}
+
+/* ---------- Floating glow blobs ---------- */
+.blur-3xl.absolute {
+    animation: floatBlob 12s ease-in-out infinite alternate;
+}
+@keyframes floatBlob {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(24px, -30px) scale(1.12); }
+}
+/* the centered blob already uses translate classes, so animate with `translate` instead */
+.blur-3xl.absolute.-translate-x-1\/2 {
+    animation: floatBlobCentered 12s ease-in-out infinite alternate;
+}
+@keyframes floatBlobCentered {
+    from { translate: 0 0; scale: 1; }
+    to   { translate: 24px -30px; scale: 1.12; }
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+    opacity: 0;
+    translate: 0 28px;
+    transition: opacity .7s ease, translate .7s cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.in {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* ---------- Card hover lift ---------- */
+.lift {
+    transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease, border-color .3s ease,
+                opacity .7s ease, translate .7s cubic-bezier(.2, .7, .2, 1) !important;
+}
+.lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px -14px rgba(99, 102, 241, .35);
+}
+
+/* ---------- Button shine ---------- */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .28), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+}
+.btn-shine:hover::after {
+    animation: shine .8s ease;
+}
+@keyframes shine {
+    from { left: -80%; }
+    to   { left: 140%; }
+}
+
+/* ---------- Most Popular plan glow ---------- */
+.border-2.border-brand-500 {
+    animation: glowPulse 3.5s ease-in-out infinite;
+}
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 25px 50px -12px rgba(99, 102, 241, .20); }
+    50%      { box-shadow: 0 25px 60px -8px rgba(99, 102, 241, .50); }
+}
+
+/* ---------- FAQ open animation ---------- */
+details[open] > p {
+    animation: faqIn .35s ease both;
+}
+@keyframes faqIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ---------- Form focus (home page contact form) ---------- */
+input, textarea, select {
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, .25);
+}
+
+/* ---------- Keyboard focus ---------- */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid #818cf8;
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* ---------- Respect "reduce motion" ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal {
+        opacity: 1;
+        translate: 0 0;
+    }
 }
