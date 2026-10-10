@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | H&S WebCraft</title>
+<meta name="description" content="Meet the 5-member H&S WebCraft team: strategy, design, full stack development, backend and payments under one roof.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                brand: {
+                    50: '#eef2ff',
+                    100: '#e0e7ff',
+                    400: '#818cf8',
+                    500: '#6366f1',
+                    600: '#4f46e5',
+                    700: '#4338ca',
+                    900: '#312e81',
+                    950: '#1e1b4b',
+                }
+            }
+        }
+    }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+
+<!-- Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+            H&S
+        </div>
+        <div class="flex flex-col">
+            <span class="font-bold text-lg leading-tight tracking-tight">Hasnain & Siddhant</span>
+            <span class="text-xs text-brand-400 font-medium">Web Developer & Consultant</span>
+        </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+        <a href="about.html" class="text-brand-400">About us</a>
+        <a href="index.html#services" class="hover:text-brand-400 transition-colors">Services</a>
+        <a href="index.html#portfolio" class="hover:text-brand-400 transition-colors">Portfolio</a>
+        <a href="index.html#pricing" class="hover:text-brand-400 transition-colors">Pricing</a>
+        <a href="index.html#reviews" class="hover:text-brand-400 transition-colors">Reviews</a>
+    </nav>
+
+    <div class="hidden sm:flex items-center gap-4">
+        <a href="https://wa.me/917379439583?text=Hi! I’d like to enquire about your services. Please share the available options, pricing, and further details." target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp Chat</span>
+        </a>
+    </div>
+
+    <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Open menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+    </button>
+</div>
+
+<div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+    <a href="about.html" class="block text-brand-400 py-1">About us</a>
+    <a href="index.html#services" class="block text-slate-300 hover:text-brand-400 py-1">Services</a>
+    <a href="index.html#portfolio" class="block text-slate-300 hover:text-brand-400 py-1">Portfolio</a>
+    <a href="index.html#pricing" class="block text-slate-300 hover:text-brand-400 py-1">Pricing</a>
+    <a href="index.html#reviews" class="block text-slate-300 hover:text-brand-400 py-1">Reviews</a>
+    <div class="pt-2">
+        <a href="https://wa.me/917379439583" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white w-full py-2.5 rounded-xl font-medium">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Direct
+        </a>
+    </div>
+</div>
+</header>
+
+<!-- Page Hero -->
+<section class="relative pt-32 pb-16 md:pt-44 md:pb-24 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+        <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3.5 py-1.5 rounded-full text-brand-400 text-xs sm:text-sm font-medium">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            <span>About H&S WebCraft</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+            <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+                A 5-Member Team Behind Every Website We Build
+            </span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+            From the first meeting to the final payment setup, everything is handled by specialists who work together. No middlemen, no outsourcing.
+        </p>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section class="py-20 bg-slate-900/50 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                    Our Story
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                    Why we started H&S WebCraft
+                </h2>
+                <p class="text-slate-400 leading-relaxed">
+                    Many local shops and growing businesses still don't have a professional website, or they have one that is slow, outdated, and doesn't bring in customers. We started H&S WebCraft to fix exactly that.
+                </p>
+                <p class="text-slate-400 leading-relaxed">
+                    We are a small team from Lucknow, Uttar Pradesh, and each of us owns one part of the job: talking to clients, designing, building the front end and back end, and setting up secure payments. Because everyone does what they are best at, your website is faster to deliver and better in quality.
+                </p>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 text-center">
+                    <div class="text-4xl font-extrabold text-white">5</div>
+                    <p class="text-slate-400 text-sm mt-1">Specialists in one team</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 text-center">
+                    <div class="text-4xl font-extrabold text-white">2h</div>
+                    <p class="text-slate-400 text-sm mt-1">Average response time</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 text-center">
+                    <div class="text-4xl font-extrabold text-white">95+</div>
+                    <p class="text-slate-400 text-sm mt-1">Google PageSpeed score</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 text-center">
+                    <div class="text-4xl font-extrabold text-white">1 yr</div>
+                    <p class="text-slate-400 text-sm mt-1">Free support on Growth plan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                Meet the Team
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                The people who build your website
+            </h2>
+            <p class="text-slate-400">
+                Five people, five different skills, one goal: to grow your business online.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Siddhant -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-handshake"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Siddhant</h3>
+                <p class="text-sm text-brand-400 font-medium mb-3">Client Relations & Business Deals</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                    Siddhant is your first point of contact. He brings in clients, runs meetings, understands your business goals, and finalizes the deal and project scope.
+                </p>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Client meetings & consultation</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Deals & project planning</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Ongoing client communication</li>
+                </ul>
+            </div>
+
+            <!-- Hasnain -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Hasnain Ali</h3>
+                <p class="text-sm text-brand-400 font-medium mb-3">Full Stack Developer</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                    Hasnain turns designs into fast, working websites. He handles the front end, WordPress and e-commerce builds, and makes sure everything is optimized for speed and SEO.
+                </p>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> HTML / CSS / JavaScript</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> WordPress & WooCommerce</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Speed & SEO optimization</li>
+                </ul>
+            </div>
+
+            <!-- UI/UX Designer -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-pen-ruler"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">[Designer Name]</h3>
+                <p class="text-sm text-brand-400 font-medium mb-3">UI/UX Designer</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                    Our designer makes sure your website looks great and is easy to use. Clean layouts, clear navigation, and designs that guide visitors toward contacting you or buying.
+                </p>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Website layouts & wireframes</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Mobile-first design</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Brand colors & visual style</li>
+                </ul>
+            </div>
+
+            <!-- Backend Developer -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">[Backend Dev Name]</h3>
+                <p class="text-sm text-brand-400 font-medium mb-3">Backend Developer</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                    The backend developer builds everything that runs behind the scenes: databases, forms, admin dashboards, and APIs, with security and reliability in mind.
+                </p>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Databases & APIs</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Admin panels & dashboards</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Security & hosting setup</li>
+                </ul>
+            </div>
+
+            <!-- Payment Gateway Expert -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 hover:border-brand-500/50 transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-sky-600/20 text-sky-400 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">[Payments Expert Name]</h3>
+                <p class="text-sm text-brand-400 font-medium mb-3">Payment Gateway Expert</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                    Our payments expert sets up safe and smooth online payments so your customers can pay easily and you receive money without hassle.
+                </p>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Razorpay & UPI integration</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Secure checkout flow</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Payment testing & go-live</li>
+                </ul>
+            </div>
+
+            <!-- Join / CTA card -->
+            <div class="bg-gradient-to-b from-brand-950/60 to-slate-900 border-2 border-brand-500 rounded-3xl p-6 flex flex-col justify-center text-center shadow-2xl shadow-brand-500/20">
+                <h3 class="text-xl font-bold text-white mb-3">Want to work with us?</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Tell us about your business and we'll suggest the best plan for it.
+                </p>
+                <a href="index.html#contact" class="block w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-brand-600/30">
+                    Book Your Free Consultation
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- How We Work -->
+<section class="py-24 bg-slate-900/50 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                How We Work
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                From first call to live website
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold mb-4">1</div>
+                <h3 class="font-bold text-white mb-2">Discuss</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Siddhant meets you, understands your business, and agrees on scope and budget.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold mb-4">2</div>
+                <h3 class="font-bold text-white mb-2">Design</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Our designer prepares the layout. You review it and share feedback before any code is written.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold mb-4">3</div>
+                <h3 class="font-bold text-white mb-2">Build</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Front end, backend, and payment integration are built and tested together.</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold mb-4">4</div>
+                <h3 class="font-bold text-white mb-2">Launch</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">We go live, hand over everything, and stay available for support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-slate-500 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+        <div class="flex items-center justify-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold text-sm">
+                H&S
+            </div>
+            <span class="font-bold text-white text-base">H&S WebCraft</span>
+        </div>
+        <p>© 2026 H&S. All rights reserved. Helping Businesses Grow Online.</p>
+        <div class="flex items-center justify-center gap-6 text-slate-400 pt-2">
+            <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+            <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+            <a href="index.html#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+            <a href="index.html#pricing" class="hover:text-white transition-colors">Pricing</a>
+            <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+</script>
+</body>
+</html>
