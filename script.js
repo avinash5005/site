@@ -86,7 +86,7 @@ window.addEventListener('click', (e) => {
 //   - Valid details are emailed to FORM_EMAIL (via FormSubmit.co)
 //   - If email fails, the visitor can send the same message on WhatsApp
 // =========================================================
-const FORM_EMAIL = 'hello@hnswebcraft.live';
+const FORM_EMAIL = 'Siddhantsingh1t@gmail.com';
 const WHATSAPP_NUMBER = '917379439583';
 
 function validateName(v) {
