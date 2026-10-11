@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#020617">
+<script>(function(){var r=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}r.classList.add(t);r.setAttribute('data-theme',t)})();</script>
 <title>Contact Us | H&S WebCraft</title>
 <meta name="description" content="Contact H&S WebCraft for a free consultation. Call, WhatsApp, email or fill the form and we will reply within 2 hours.">
 <!-- Tailwind CSS (compiled) -->
@@ -34,16 +36,21 @@
         <a href="contact.html" class="text-brand-400">Contact</a>
     </nav>
 
+    <div class="flex items-center gap-3">
     <div class="hidden sm:flex items-center gap-4">
         <a href="https://wa.me/917379439583?text=Hi! I’d like to enquire about your services. Please share the available options, pricing, and further details." target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
             <i class="fa-brands fa-whatsapp text-lg"></i>
             <span>WhatsApp Chat</span>
         </a>
     </div>
-
+    <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Switch theme" title="Switch theme">
+            <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
     <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Open menu">
         <i class="fa-solid fa-bars text-xl"></i>
     </button>
+</div>
 </div>
 
 <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">

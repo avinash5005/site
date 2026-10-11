@@ -28,11 +28,11 @@ html { scroll-behavior: smooth; }
 
 /* Dark scrollbar */
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-track { background: rgb(var(--slate-950)); }
 ::-webkit-scrollbar-thumb {
-    background: #312e81;
+    background: rgb(var(--scroll-thumb));
     border-radius: 10px;
-    border: 2px solid #020617;
+    border: 2px solid rgb(var(--slate-950));
 }
 ::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
 
@@ -51,7 +51,7 @@ body::before {
     position: fixed;
     inset: 0;
     z-index: 200;
-    background: #020617;
+    background: rgb(var(--slate-950));
     pointer-events: none;
     animation: curtainOut .55s ease .05s both;
 }
@@ -111,11 +111,11 @@ html.leaving body::before {
     position: absolute;
     inset: 3px;
     border-radius: 50%;
-    background: #0f172a;
+    background: rgb(var(--slate-900));
 }
 #to-top i {
     position: relative;
-    color: #a5b4fc;
+    color: rgb(var(--brand-400));
     font-size: 14px;
 }
 
@@ -142,7 +142,7 @@ header.fixed {
     transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 header.fixed.scrolled {
-    background-color: rgba(2, 6, 23, .92);
+    background-color: rgb(var(--slate-950) / .92);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .6);
     border-color: rgba(99, 102, 241, .25);
 }
@@ -373,4 +373,125 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     color: #34d399;
     font-weight: 600;
     text-decoration: underline;
+}
+
+/* =========================================================
+   THEME (dark = default, light = html.light)
+   Tailwind colors read these variables, so changing them
+   here re-colors the whole site.
+   ========================================================= */
+:root {
+    --slate-50: 248 250 252;
+    --slate-100: 241 245 249;
+    --slate-200: 226 232 240;
+    --slate-300: 203 213 225;
+    --slate-400: 148 163 184;
+    --slate-500: 100 116 139;
+    --slate-600: 71 85 105;
+    --slate-700: 51 65 85;
+    --slate-800: 30 41 59;
+    --slate-900: 15 23 42;
+    --slate-950: 2 6 23;
+    --brand-400: 129 140 248;
+    --brand-950: 30 27 75;
+    --emerald-400: 52 211 153;
+    --purple-400: 192 132 252;
+    --sky-400: 56 189 248;
+    --amber-400: 251 191 36;
+    --blue-400: 96 165 250;
+    --indigo-300: 165 180 252;
+    --scroll-thumb: 49 46 129;
+}
+html.dark { color-scheme: dark; }
+
+html.light {
+    color-scheme: light;
+    --slate-50: 2 6 23;
+    --slate-100: 15 23 42;
+    --slate-200: 30 41 59;
+    --slate-300: 51 65 85;
+    --slate-400: 71 85 105;
+    --slate-500: 100 116 139;
+    --slate-600: 148 163 184;
+    --slate-700: 203 213 225;
+    --slate-800: 226 232 240;
+    --slate-900: 255 255 255;
+    --slate-950: 248 250 252;
+    --brand-400: 79 70 229;
+    --brand-950: 224 231 255;
+    --emerald-400: 5 150 105;
+    --purple-400: 147 51 234;
+    --sky-400: 2 132 199;
+    --amber-400: 217 119 6;
+    --blue-400: 37 99 235;
+    --indigo-300: 99 102 241;
+    --scroll-thumb: 165 180 252;
+}
+
+/* "white" text is for dark backgrounds: flip it, but keep it white on colored buttons/badges */
+html.light .text-white,
+html.light .hover\:text-white:hover { color: rgb(15 23 42); }
+html.light [class*="bg-brand-600"].text-white,
+html.light [class*="bg-brand-500"].text-white,
+html.light [class*="bg-emerald-600"].text-white,
+html.light [class*="bg-sky-600"].text-white,
+html.light .bg-gradient-to-tr.text-white { color: #fff; }
+
+/* section dividers and alternate section background */
+html.light .border-slate-900 { border-color: rgb(226 232 240); }
+html.light section.bg-slate-900\/50 { background-color: rgb(241 245 249 / .85); }
+
+/* soft shadows instead of heavy dark ones */
+html.light header.fixed.scrolled { box-shadow: 0 10px 30px -14px rgba(15, 23, 42, .25); }
+html.light .lift:hover { box-shadow: 0 22px 40px -16px rgba(79, 70, 229, .28); }
+
+/* decorative effects tuned for a light background */
+html.light #cursor-glow {
+    mix-blend-mode: multiply;
+    background: radial-gradient(circle, rgba(99, 102, 241, .13), transparent 62%);
+}
+html.light .glass-card {
+    background: rgba(15, 23, 42, .04);
+    border-color: rgba(15, 23, 42, .1);
+}
+html.light .glass-card:hover { background: rgba(15, 23, 42, .07); }
+html.light iframe { filter: none !important; } /* map: remove the dark-mode inversion */
+html.light .field-error-text { color: #e11d48; }
+html.light .form-error-box { color: #9f1239; }
+html.light .form-error-box a { color: #047857; }
+
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(var(--slate-300));
+    background: rgb(var(--slate-900));
+    border: 1px solid rgb(var(--slate-800));
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.theme-toggle:hover {
+    color: rgb(var(--brand-400));
+    border-color: rgb(var(--brand-400) / .6);
+}
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .i-moon { display: none; }
+html.light .theme-toggle .i-sun { display: none; }
+html.light .theme-toggle .i-moon { display: block; }
+.theme-toggle.spin svg { animation: themeSpin .5s ease; }
+@keyframes themeSpin {
+    from { transform: rotate(-90deg) scale(.6); opacity: 0; }
+    to   { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+/* smooth color change while switching theme (added by script.js for ~0.45s) */
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+    transition: background-color .35s ease, color .35s ease, border-color .35s ease, fill .35s ease, stroke .35s ease, box-shadow .35s ease !important;
 }

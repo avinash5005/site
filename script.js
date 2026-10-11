@@ -321,6 +321,68 @@ function resetForm() {
 })();
 
 // =========================================================
+// THEME TOGGLE (light / dark)
+//   - first visit: follows the device setting (light or dark)
+//   - after the visitor clicks the button, their choice is remembered
+// =========================================================
+(function () {
+    var root = document.documentElement;
+    var media = window.matchMedia('(prefers-color-scheme: light)');
+
+    function saved() {
+        try {
+            var t = localStorage.getItem('theme');
+            return (t === 'light' || t === 'dark') ? t : null;
+        } catch (e) { return null; }
+    }
+
+    function apply(theme, animate) {
+        if (animate) {
+            root.classList.add('theme-anim');
+            setTimeout(function () { root.classList.remove('theme-anim'); }, 450);
+        }
+        root.classList.remove('light', 'dark');
+        root.classList.add(theme);
+        root.setAttribute('data-theme', theme);
+
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#f8fafc' : '#020617');
+
+        var btn = document.getElementById('theme-toggle');
+        if (btn) {
+            var label = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+            btn.setAttribute('aria-label', label);
+            btn.setAttribute('title', label);
+        }
+    }
+
+    // set the starting theme: saved choice first, otherwise the device setting
+    apply(saved() || (media.matches ? 'light' : 'dark'), false);
+
+    function bind() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        apply(root.classList.contains('light') ? 'light' : 'dark', false); // refresh button label
+        btn.addEventListener('click', function () {
+            var next = root.classList.contains('light') ? 'dark' : 'light';
+            apply(next, true);
+            try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked: still works for this visit */ }
+            btn.classList.add('spin');
+            setTimeout(function () { btn.classList.remove('spin'); }, 500);
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+    else bind();
+
+    // if the visitor never picked a theme, keep following the device when it changes
+    function onDeviceChange(e) {
+        if (!saved()) apply(e.matches ? 'light' : 'dark', true);
+    }
+    if (media.addEventListener) media.addEventListener('change', onDeviceChange);
+    else if (media.addListener) media.addListener(onDeviceChange);
+})();
+
+// =========================================================
 // ANIMATIONS
 // =========================================================
 (function () {
@@ -421,6 +483,10 @@ function resetForm() {
 
             var frame = function () {
                 ctx.clearRect(0, 0, w, h);
+                var light = document.documentElement.classList.contains('light');
+                var dotColor = light ? 'rgba(79, 70, 229, .55)' : 'rgba(165, 180, 252, .7)';
+                var lineRGB = light ? '79, 70, 229' : '129, 140, 248';
+                var lineAlpha = light ? 0.22 : 0.28;
                 for (var i = 0; i < pts.length; i++) {
                     var p = pts[i];
                     p.x += p.vx; p.y += p.vy;
@@ -428,7 +494,7 @@ function resetForm() {
                     if (p.y < 0) p.y = h; else if (p.y > h) p.y = 0;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(165, 180, 252, .7)';
+                    ctx.fillStyle = dotColor;
                     ctx.fill();
                     for (var j = i + 1; j < pts.length; j++) {
                         var q = pts[j];
@@ -438,7 +504,7 @@ function resetForm() {
                             ctx.beginPath();
                             ctx.moveTo(p.x, p.y);
                             ctx.lineTo(q.x, q.y);
-                            ctx.strokeStyle = 'rgba(129, 140, 248,' + ((1 - d / 120) * 0.28) + ')';
+                            ctx.strokeStyle = 'rgba(' + lineRGB + ',' + ((1 - d / 120) * lineAlpha) + ')';
                             ctx.lineWidth = 1;
                             ctx.stroke();
                         }
